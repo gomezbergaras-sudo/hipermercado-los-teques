@@ -1,0 +1,6 @@
+.env
+.env.*
+supabase/.temp/
+respaldo_rrhh_*.json
+nomina_*.xlsx
+nomina_*.pdf

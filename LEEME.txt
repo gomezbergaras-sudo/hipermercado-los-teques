@@ -1,0 +1,33 @@
+HIPERMERCADO LOS TEQUES C.A · RECURSOS HUMANOS
+RIF J-507436705
+Av. Pedro Russo CC Los Teques, Nivel Mezzanina, Local A1-6,
+Sector El Tambor, Los Teques, Miranda. Zona Postal 1201
+
+1. Abre index.html en Chrome o Edge. Con Supabase configurado, usa
+   tu cuenta de Recursos Humanos. En modo local, crea el usuario de
+   Gerencia y una clave de seis dígitos.
+2. Usa Personal para registrar empleados. La ficha permite indicar
+   el egreso y su fecha. En Reposos, registra desde cuándo y hasta
+   cuándo aplica el justificativo. El inicio se actualiza con esos
+   datos. El reposo registrado no modifica la nómina automáticamente.
+3. Antes de exportar, configura la tasa de la quincena o de referencia.
+   Revisa los parámetros y los resultados de nómina y liquidaciones
+   antes de usarlos para pagos.
+4. Guarda un respaldo con Ajustes → Datos → Respaldar. La restauración
+   reemplaza los registros locales, pero conserva las cuentas de acceso.
+
+La app de Los Teques usa su propio proyecto y sus propias cuentas.
+Conserva index.html, logo-hippo-lila.png, supabase-config.js y
+supabase-cloud.js en la misma carpeta. El HTML incluye las bibliotecas
+de diseño, Excel y PDF.
+
+La migración de supabase/migrations está aplicada al proyecto exclusivo
+de Los Teques. supabase-config.js identifica ese proyecto. En Supabase
+Auth, provisiona las cuentas y registra sus UUID en rrhh_miembros con
+el rol gerencia o rrhh. La contraseña de PostgreSQL queda en Supabase.
+
+Con la configuración vacía, el acceso por PIN usa los registros del
+perfil de Chrome o Edge. Un respaldo creado en Ajustes permite al rol
+Gerencia restaurar esos registros en el proyecto compartido.
+El HTML y el código se pueden cargar al repositorio de GitHub.
+Guarda los respaldos y las nóminas exportadas fuera del repositorio.
