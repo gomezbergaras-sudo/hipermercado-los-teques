@@ -17,14 +17,15 @@ Sector El Tambor, Los Teques, Miranda. Zona Postal 1201
    reemplaza los registros locales, pero conserva las cuentas de acceso.
 
 La app de Los Teques usa su propio proyecto y sus propias cuentas.
-Conserva index.html, logo-hippo-lila.png, supabase-config.js y
-supabase-cloud.js en la misma carpeta. El HTML incluye las bibliotecas
-de diseño, Excel y PDF.
+Conserva index.html, logo-hippo-lila.png, supabase-config.js,
+supabase-cloud.js y liquidacion-pdf.js en la misma carpeta.
+El HTML incluye las bibliotecas de diseño, Excel y PDF.
 
 La migración de supabase/migrations está aplicada al proyecto exclusivo
-de Los Teques. supabase-config.js identifica ese proyecto. En Supabase
-Auth, provisiona las cuentas y registra sus UUID en rrhh_miembros con
-el rol gerencia o rrhh. La contraseña de PostgreSQL queda en Supabase.
+de Los Teques. supabase-config.js identifica ese proyecto. La cuenta
+maestra de Gerencia crea cuentas de RRHH desde Ajustes → Usuarios y
+permisos → + Usuario. Los nuevos usuarios entran con su nombre de
+usuario y la clave inicial definida por Gerencia.
 
 Con la configuración vacía, el acceso por PIN usa los registros del
 perfil de Chrome o Edge. Un respaldo creado en Ajustes permite al rol

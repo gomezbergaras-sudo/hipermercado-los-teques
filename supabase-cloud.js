@@ -63,10 +63,23 @@ const nubeRRHH = (() => {
     return cargarCuenta(verificado.user);
   }
 
-  async function entrar(email, password) {
+  async function entrar(identificador, password) {
+    const usuario = identificador.trim().toLowerCase();
+    const email = usuario.includes("@") ? usuario : usuario + "@hlt-rrhh.example.com";
     const { data, error } = await cliente.auth.signInWithPassword({ email, password });
-    if (error) throw Error("No se pudo iniciar sesión. Revisa el correo y la contraseña.");
+    if (error) throw Error("No se pudo iniciar sesión. Revisa el usuario o correo y la contraseña.");
     return cargarCuenta(data.user);
+  }
+
+  async function crearUsuario(usuario, nombre, clave) {
+    const { data, error } = await cliente.functions.invoke("rrhh-crear-usuario", {
+      body: { usuario, nombre, clave }
+    });
+    if (error) {
+      const respuesta = await error.context?.json?.().catch(() => null);
+      throw Error(respuesta?.mensaje || "No se pudo crear la cuenta de RRHH.");
+    }
+    return data;
   }
 
   async function cargarCuenta(usuario) {
@@ -175,5 +188,5 @@ const nubeRRHH = (() => {
     await refrescar();
   }
 
-  return { activa: Boolean(url || publishableKey), configurar, entrar, salir, refrescar, guardar, restaurar };
+  return { activa: Boolean(url || publishableKey), configurar, entrar, crearUsuario, salir, refrescar, guardar, restaurar };
 })();
